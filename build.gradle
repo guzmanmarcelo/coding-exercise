@@ -2,7 +2,7 @@ plugins {
     id 'java'
 }
 
-group 'org.example'
+group 'com.carsdirect'
 version '1.0-SNAPSHOT'
 
 repositories {
@@ -10,8 +10,14 @@ repositories {
 }
 
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
+    // Logger library
+    implementation group: 'log4j', name: 'log4j', version: '1.2.17'
+
+    // Selenium
+    implementation group: 'org.seleniumhq.selenium', name: 'selenium-java', version: '4.0.0'
+
+    // Selenium WebDriver
+    implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.0.3'
 }
 
 test {
