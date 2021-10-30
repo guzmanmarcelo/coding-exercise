@@ -20,7 +20,10 @@ public class MainContentLeftPage extends BasePage {
   private WebElement FILTER_SEGMENT_DROPDOWN_LOCATOR;
 
   @FindBy(css = "div.customSelect")
-  private WebElement CUSTOM_SELECT_LOCATOR;
+  private WebElement FILTER_SEGMENT_LOCATOR;
+
+  @FindBy(xpath = "//div[@class='DropdownLight filterSegment']/span")
+  private WebElement FILTER_SEGMENT_CONTENT_LOCATOR;
 
   private static final String CUSTOM_OPTION_LOCATOR = "//a[text()='%s']";
   private static final String MODEL_CARD_TITLE_LOCATOR = "//div[@class='modelCardTitle' and @id='%s']";
@@ -35,7 +38,8 @@ public class MainContentLeftPage extends BasePage {
    */
   private void clickFilterSegmentDropdown() {
     driverTools.clickElement(FILTER_SEGMENT_DROPDOWN_LOCATOR);
-    wait.until(ExpectedConditions.attributeToBe(CUSTOM_SELECT_LOCATOR, "style", "display: block;"));
+    wait.until(
+        ExpectedConditions.attributeToBe(FILTER_SEGMENT_LOCATOR, "style", "display: block;"));
   }
 
   /**
@@ -45,7 +49,8 @@ public class MainContentLeftPage extends BasePage {
    */
   private void clickOptionLink(final String optionValue) {
     driverTools.clickElement(By.xpath(String.format(CUSTOM_OPTION_LOCATOR, optionValue)));
-    wait.until(ExpectedConditions.attributeToBe(CUSTOM_SELECT_LOCATOR, "style", "display: none;"));
+    wait.until(
+        ExpectedConditions.textToBePresentInElement(FILTER_SEGMENT_CONTENT_LOCATOR, optionValue));
   }
 
   /**
@@ -54,7 +59,7 @@ public class MainContentLeftPage extends BasePage {
    * @param optionValue the Option value.
    * @return MainContentLeftPage instance.
    */
-  public MainContentLeftPage selectOption(final String optionValue) {
+  public MainContentLeftPage selectSegmentOption(final String optionValue) {
     clickFilterSegmentDropdown();
     clickOptionLink(optionValue);
     return this;

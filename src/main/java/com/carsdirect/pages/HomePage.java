@@ -12,6 +12,6 @@ public class HomePage extends BasePage {
 
   @Override
   public void waitUntilPageIsLoaded() {
-    wait.until(ExpectedConditions.titleContains("The Easiest Way To Buy Your Next Car"));
+    wait.until(ExpectedConditions.titleContains("Price, Search, Buy New & Used Cars Online - CarsDirect"));
   }
 }

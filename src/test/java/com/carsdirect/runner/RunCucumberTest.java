@@ -6,6 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
     glue = {"com.carsdirect"},
     features = {"src/test/resources/features"},
-    tags = "@Exercise")
+    tags = "@Test")
 public class RunCucumberTest extends AbstractTestNGCucumberTests {
+
 }

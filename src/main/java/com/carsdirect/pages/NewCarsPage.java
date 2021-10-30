@@ -20,7 +20,7 @@ public class NewCarsPage extends BasePage {
   private WebElement SEARCH_FLYOUT_MAKE_LOCATOR;
 
   @FindBy(css = "div.ButtonGreen.findYourCar")
-  private WebElement FIND_YOUR_CAR_BUTTON;
+  private WebElement FIND_YOUR_NEXT_CAR_BUTTON;
 
   private static final String MAKE_NAME_LOCATOR = "//div[@class='mmyzFlyout mmSearchSetFlyoutMake']//a[text()='%s']";
 
@@ -67,8 +67,8 @@ public class NewCarsPage extends BasePage {
    *
    * @return MainContentLeftPage instance.
    */
-  public MainContentLeftPage clickFindYourCarButton() {
-    driverTools.clickElement(FIND_YOUR_CAR_BUTTON);
+  public MainContentLeftPage clickFindYourNextCarButton() {
+    driverTools.clickElement(FIND_YOUR_NEXT_CAR_BUTTON);
     return new MainContentLeftPage();
   }
 }

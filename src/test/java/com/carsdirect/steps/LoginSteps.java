@@ -6,7 +6,6 @@ import com.carsdirect.selenium.webdriver.SharedDriver;
 import com.carsdirect.utils.PropertiesInput;
 import com.carsdirect.utils.PropertiesManager;
 import io.cucumber.java.en.Given;
-import org.apache.log4j.Logger;
 import org.openqa.selenium.WebDriver;
 
 /**
@@ -16,13 +15,11 @@ import org.openqa.selenium.WebDriver;
  */
 public class LoginSteps {
 
-  private static final Logger log = Logger.getLogger(LoginSteps.class);
-  private HomePage homePage;
   private static final String URL = PropertiesManager.getInstance()
       .getProperty(PropertiesInput.URL);
 
   /**
-   * Initializes q new instance of LoginSteps class.
+   * Initializes a new instance of LoginSteps class.
    *
    * @param sharedDriver sharedDriver.
    */
@@ -32,10 +29,10 @@ public class LoginSteps {
   /**
    * Navigates to Cars Direct main page.
    */
-  @Given("^I navigate to Cars Direct main page$")
+  @Given("I navigate to Cars Direct main page")
   public void navigateToCarsDirectMainPage() {
     navigateToMainPage(URL);
-    homePage = new HomePage();
+    HomePage homePage = new HomePage();
   }
 
   /**

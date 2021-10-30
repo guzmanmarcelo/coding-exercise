@@ -2,6 +2,7 @@ package com.carsdirect.selenium;
 
 import org.apache.log4j.Logger;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -31,6 +32,7 @@ public class WebDriverTools {
 
   /**
    * Gets a WebElement given a By locator.
+   *
    * @param by By value.
    * @return the WebElement.
    */
@@ -76,6 +78,11 @@ public class WebDriverTools {
    * @return true if the WebElement is displayed, false otherwise.
    */
   public boolean isElementDisplayed(final By by) {
-    return isElementDisplayed(getWebElement(by));
+    try {
+      return isElementDisplayed(getWebElement(by));
+    } catch (NoSuchElementException noSuchElementException) {
+      log.info("Exception when waiting for element to be displayed.");
+    }
+    return false;
   }
 }
