@@ -13,8 +13,8 @@ import org.apache.log4j.PropertyConfigurator;
 public class WebDriverConfigReader {
 
   private static final Logger log = Logger.getLogger(WebDriverConfigReader.class);
-  private static WebDriverConfigReader webDriverConfigReader;
   private static final PropertiesManager propertiesManager = PropertiesManager.getInstance();
+  private static WebDriverConfigReader webDriverConfigReader;
   private String browser;
   private int implicitWaitTime;
   private int explicitWaitTime;
@@ -68,7 +68,7 @@ public class WebDriverConfigReader {
    * @return implicit wait value.
    */
   public int getImplicitWaitTime() {
-   return implicitWaitTime;
+    return implicitWaitTime;
   }
 
   /**

@@ -18,7 +18,7 @@ public class BrowserFactory {
 
   private static final Map<Browser, Supplier<Driver>> BROWSERS = new EnumMap<>(Browser.class);
 
-  static  {
+  static {
     BROWSERS.put(Browser.CHROME, Chrome::new);
     BROWSERS.put(Browser.FIREFOX, Firefox::new);
   }

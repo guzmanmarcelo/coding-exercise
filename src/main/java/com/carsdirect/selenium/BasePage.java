@@ -4,6 +4,7 @@ import com.carsdirect.selenium.webdriver.DriverFactory;
 import com.carsdirect.selenium.webdriver.WebDriverConfigReader;
 import java.time.Duration;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 /**
@@ -24,8 +25,12 @@ public abstract class BasePage {
   public BasePage() {
     driver = DriverFactory.getDriver();
     webDriverConfigReader = WebDriverConfigReader.getInstance();
-    wait = new WebDriverWait(driver, Duration.ofSeconds(webDriverConfigReader.getExplicitWaitTime()), Duration.ofSeconds(webDriverConfigReader.getSleepTime()));
+    wait = new WebDriverWait(driver,
+        Duration.ofSeconds(webDriverConfigReader.getExplicitWaitTime()),
+        Duration.ofSeconds(webDriverConfigReader.getSleepTime()));
     driverTools = new WebDriverTools(driver, wait);
+    PageFactory.initElements(driver, this);
+    waitUntilPageIsLoaded();
   }
 
   /**

@@ -9,7 +9,8 @@ public enum PropertiesInput {
   BROWSER("browser"),
   IMPLICIT_WAIT_TIME("implicitWaitTime"),
   EXPLICIT_WAIT_TIME("explicitWaitTime"),
-  SLEEP_TIME("sleepTime");
+  SLEEP_TIME("sleepTime"),
+  URL("url");
 
   private final String property;
 

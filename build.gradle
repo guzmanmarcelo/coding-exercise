@@ -18,8 +18,37 @@ dependencies {
 
     // Selenium WebDriver
     implementation group: 'io.github.bonigarcia', name: 'webdrivermanager', version: '5.0.3'
+
+    // Cucumber
+    implementation group: 'io.cucumber', name: 'cucumber-java', version: '7.0.0'
+    implementation group: 'io.cucumber', name: 'cucumber-testng', version: '7.0.0'
+    testImplementation group: 'io.cucumber', name: 'cucumber-picocontainer', version: '7.0.0'
 }
 
-test {
-    useJUnitPlatform()
+// Task to define arguments and configurations to properties file.
+tasks.withType(Test) {
+    // Enable TestNG support (default is JUnit).
+    useTestNG()
+
+    // Define the custom properties.
+    systemProperty "url", url
+    systemProperty "browser", browser
+}
+
+// Task to execute the features.
+task executeFeatures(type: Test) {
+    doFirst {
+        useTestNG()
+        options {
+            useDefaultListeners = false
+            jvmArgs = ['-Dcucumber.options= ' +
+                               '--glue com.carsdirect ' +
+                               '--plugin pretty ' +
+                               '--plugin json:build/cucumber/cucumber.json ' +
+                               '--plugin rerun:build/cucumber/rerun.txt ' +
+                               cucumberOptions]
+        }
+    }
+    scanForTestClasses = false
+    ignoreFailures = true
 }
