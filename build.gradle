@@ -27,9 +27,6 @@ dependencies {
 
 // Task to define arguments and configurations to properties file.
 tasks.withType(Test) {
-    // Enable TestNG support (default is JUnit).
-    useTestNG()
-
     // Define the custom properties.
     systemProperty "url", url
     systemProperty "browser", browser
