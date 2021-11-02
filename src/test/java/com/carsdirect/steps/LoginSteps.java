@@ -1,6 +1,5 @@
 package com.carsdirect.steps;
 
-import com.carsdirect.pages.HomePage;
 import com.carsdirect.selenium.webdriver.DriverFactory;
 import com.carsdirect.selenium.webdriver.SharedDriver;
 import com.carsdirect.utils.PropertiesInput;
@@ -32,7 +31,6 @@ public class LoginSteps {
   @Given("I navigate to Cars Direct main page")
   public void navigateToCarsDirectMainPage() {
     navigateToMainPage(URL);
-    HomePage homePage = new HomePage();
   }
 
   /**

@@ -22,8 +22,6 @@ public class NavigationBar extends BasePage {
   @FindBy(id = "LogoAndNavWrapper")
   private WebElement NAVIGATION_BAR_LOCATOR;
 
-  private static final String MAIN_NAV_LOCATOR = "//a/span[text()='%s']";
-
   @Override
   public void waitUntilPageIsLoaded() {
     wait.until(ExpectedConditions.visibilityOf(NAVIGATION_BAR_LOCATOR));
@@ -36,7 +34,7 @@ public class NavigationBar extends BasePage {
    * @return Object instance.
    */
   public Object clickNavigationBarLink(final String linkName) {
-    driverTools.clickElement(By.xpath(String.format(MAIN_NAV_LOCATOR, linkName)));
+    driverTools.clickElement(By.linkText(linkName));
     switch (linkName) {
       case "New Cars":
         return new NewCarsPage();

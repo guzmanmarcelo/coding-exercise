@@ -22,7 +22,7 @@ public class NewCarsPage extends BasePage {
   @FindBy(css = "div.ButtonGreen.findYourCar")
   private WebElement FIND_YOUR_NEXT_CAR_BUTTON;
 
-  private static final String MAKE_NAME_LOCATOR = "//div[@class='mmyzFlyout mmSearchSetFlyoutMake']//a[text()='%s']";
+  private static final String MAKE_NAME_LOCATOR = "a.mmyzFlyoutMakeName[data-makedenormalized='%s']";
 
   @Override
   public void waitUntilPageIsLoaded() {
@@ -45,7 +45,7 @@ public class NewCarsPage extends BasePage {
    * @param makeValue the Make value.
    */
   private void clickMakeLink(final String makeValue) {
-    driverTools.clickElement(By.xpath(String.format(MAKE_NAME_LOCATOR, makeValue)));
+    driverTools.clickElement(By.cssSelector(String.format(MAKE_NAME_LOCATOR, makeValue)));
     wait.until(
         ExpectedConditions.attributeToBe(SEARCH_FLYOUT_MAKE_LOCATOR, "style", "display: none;"));
   }

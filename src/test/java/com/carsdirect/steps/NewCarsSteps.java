@@ -1,6 +1,5 @@
 package com.carsdirect.steps;
 
-import com.carsdirect.pages.MainContentLeftPage;
 import com.carsdirect.pages.NewCarsPage;
 import io.cucumber.java.en.And;
 
@@ -35,6 +34,6 @@ public class NewCarsSteps {
    */
   @And("(I )click 'Find Your Next Car' button")
   public void clickFindYourNextCarButton() {
-    MainContentLeftPage mainContentLeftPage = newCarsPage.clickFindYourNextCarButton();
+    newCarsPage.clickFindYourNextCarButton();
   }
 }

@@ -60,6 +60,6 @@ public class PropertiesManager {
    */
   private String getPropertyValue(final String propertyKey) {
     final String property = System.getProperty(propertyKey);
-    return property == null? properties.getProperty(propertyKey) : property;
+    return property == null ? properties.getProperty(propertyKey) : property;
   }
 }

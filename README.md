@@ -47,13 +47,13 @@ You can also use parameters to change the browser (CHROME by default):
 Go to `/src/test/java/com/carsdirect/runner`  and open the `RunCucumberTest.java` class. <br>
 Update the tags if necessary and select the `Run 'RunCucumberTest'` option. <br>
 
-<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\RunCucumberTest.png"/>
+<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\src\test\resources\images\readme\RunCucumberTest.png"/>
 
 ### Using the Intellij IDEA runner
 
-<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\Runner.png"/>
+<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\src\test\resources\images\readme\Runner.png"/>
 
 ## Review Cucumber Report
 At the end of the execution, a report will be generated automatically. You will see in the bottom page, just click on the link, and you will be redirected to the report.
 
-<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\CucumberReport.png"/>
+<img src="E:\Projects\GitLab Jalasoft\TX\Exercise\src\test\resources\images\readme\CucumberReport.png"/>

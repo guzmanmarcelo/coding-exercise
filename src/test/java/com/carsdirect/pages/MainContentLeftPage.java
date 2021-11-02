@@ -25,8 +25,7 @@ public class MainContentLeftPage extends BasePage {
   @FindBy(xpath = "//div[@class='DropdownLight filterSegment']/span")
   private WebElement FILTER_SEGMENT_CONTENT_LOCATOR;
 
-  private static final String CUSTOM_OPTION_LOCATOR = "//a[text()='%s']";
-  private static final String MODEL_CARD_TITLE_LOCATOR = "//div[@class='modelCardTitle' and @id='%s']";
+  private static final String CUSTOM_OPTION_LOCATOR = "a.customSelectOpton[data-segment='%s']";
 
   @Override
   public void waitUntilPageIsLoaded() {
@@ -48,7 +47,7 @@ public class MainContentLeftPage extends BasePage {
    * @param optionValue the Option value.
    */
   private void clickOptionLink(final String optionValue) {
-    driverTools.clickElement(By.xpath(String.format(CUSTOM_OPTION_LOCATOR, optionValue)));
+    driverTools.clickElement(By.cssSelector(String.format(CUSTOM_OPTION_LOCATOR, optionValue)));
     wait.until(
         ExpectedConditions.textToBePresentInElement(FILTER_SEGMENT_CONTENT_LOCATOR, optionValue));
   }
@@ -72,6 +71,6 @@ public class MainContentLeftPage extends BasePage {
    * @return true if the model is displayed, false otherwise.
    */
   public boolean isModelDisplayed(final String model) {
-    return driverTools.isElementDisplayed(By.xpath(String.format(MODEL_CARD_TITLE_LOCATOR, model)));
+    return driverTools.isElementDisplayed(By.id(model));
   }
 }
